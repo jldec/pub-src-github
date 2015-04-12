@@ -27,13 +27,12 @@ source.get(function(err, files) {
 
 ```
 
-### source.repo, source.branch
+### source.repo, .branch
 - `repo` is required
 - `branch` will default to 'master'
 
-### source.username, source.password
+### source.username, .password
 - `username` and `password` may be required to access private repos
-- 
 
 ### source.path
 - defaults to '/'
