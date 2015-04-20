@@ -45,7 +45,7 @@ source.get(function(err, files) {
 
 ### source.get(cb)
 - `get()` fetches all matching files in one async operation
-- the result is an array of file objects each with a `path:` and a `text:` property 
+- the result is an array of file objects each with a `path:` and a `text:` property
 - the array is sorted alphabetically by path
 - results do not include directories, but do include files in subdirectories
 - if the source is writable, `get()` is atomic with respect to `put()` or other `source.get()` operations
