@@ -8,21 +8,20 @@ suite('pub-src-github test-get');
 
 var assert = require('assert')
 
-var expected = [
-  { path: '/-foo.txt', text: 'file some -->  ⌘ <---' },
-  { path: '/1/9.txt', text: '' },
+var expected =
+[ { path: '/-foo.txt', text: 'file some -->  ⌘ <---' },
   { path: '/1.txt', text: '' },
-  { path: '/2/10.txt/11.txt', text: '' },
-  { path: '/2/10.txt/12.txt', text: '' },
-  { path: '/2/10.txt/13/14.txt', text: '' },
   { path: '/2.txt', text: '' },
   { path: '/3.txt', text: '' },
   { path: '/4.txt', text: '' },
   { path: '/5.txt', text: '' },
+  { path: '/1/9.txt', text: '' },
+  { path: '/2/10.txt/11.txt', text: '' },
+  { path: '/2/10.txt/12.txt', text: '' },
+  { path: '/2/10.txt/13/14.txt', text: '' },
   { path: '/f1/6.txt', text: '' },
   { path: '/f1/7.txt', text: '' },
-  { path: '/f2/8.txt', text: '' }
-];
+  { path: '/f2/8.txt', text: '' } ];
 
 test('test get on tree', function(done) {
   this.timeout(5000);
@@ -35,7 +34,7 @@ test('test get on tree', function(done) {
 
   source.get(function(err, files) {
     if (err) return done(err);
-    // console.log(files);
+// console.log(files);
     assert.deepEqual(files, expected);
     done();
   });

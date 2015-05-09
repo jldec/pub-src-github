@@ -11,21 +11,20 @@ var assert = require('assert')
 var stored   = 'file some -->  ⌘ <---'
 var overwrite = ' - ⌘ - ⌘ - ';
 
-var expected = [
-  { path: '/-foo.txt', text: overwrite },
-  { path: '/1/9.txt', text: '' },
+var expected =
+[ { path: '/-foo.txt', text: 'file some -->  ⌘ <---' },
   { path: '/1.txt', text: '' },
-  { path: '/2/10.txt/11.txt', text: '' },
-  { path: '/2/10.txt/12.txt', text: '' },
-  { path: '/2/10.txt/13/14.txt', text: '' },
   { path: '/2.txt', text: '' },
   { path: '/3.txt', text: '' },
   { path: '/4.txt', text: '' },
   { path: '/5.txt', text: '' },
+  { path: '/1/9.txt', text: '' },
+  { path: '/2/10.txt/11.txt', text: '' },
+  { path: '/2/10.txt/12.txt', text: '' },
+  { path: '/2/10.txt/13/14.txt', text: '' },
   { path: '/f1/6.txt', text: '' },
   { path: '/f1/7.txt', text: '' },
-  { path: '/f2/8.txt', text: '' }
-];
+  { path: '/f2/8.txt', text: '' } ];
 
 
 test('test put, validate, and restore', function(done) {
