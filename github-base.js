@@ -39,7 +39,7 @@ module.exports = function ghbase(opts) {
 
   self.endpoint = self.api + '/repos/' + self.repo;
 
-  self.isfile     = require('path').extname,
+  self.isfile     = require('path').extname, // TODO: use API for this
   self.readdir    = readdir,
   self.readfile   = readfile,
   self.writefiles = writefiles
