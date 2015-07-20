@@ -30,7 +30,7 @@ module.exports = function ghbase(opts) {
   self.path     = self.path      || '/';
 
   self.branch   = self.branch    || 'master';
-  self.username = process.env.GH || '';
+  self.username = (self.auth && self.auth.access_token) || process.env.GH || '';
   self.password = self.password  || '';
 
   self.agent    = self.agent     || 'pub-server'; // required by gh api
@@ -135,8 +135,3 @@ module.exports = function ghbase(opts) {
   }
 
 };
-
-
-
-
-

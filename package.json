@@ -1,6 +1,6 @@
 {
   "name": "pub-src-github",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Github source for pub-server and pub-generator",
   "main": "pub-src-github.js",
   "dependencies": {
