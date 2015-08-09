@@ -4,9 +4,7 @@
  *
 **/
 
-suite('pub-src-github test-get');
-
-var assert = require('assert')
+var test = require('tape');
 
 var expected =
 [ { path: '/-foo.txt', text: 'file some -->  ⌘ <---' },
@@ -23,8 +21,7 @@ var expected =
   { path: '/f1/7.txt', text: '' },
   { path: '/f2/8.txt', text: '' } ];
 
-test('test get on tree', function(done) {
-  this.timeout(5000);
+test('test get on tree', { timeout:5000 }, function(t) {
 
   var source = require('..')(
   { repo: process.env.GH_REPO || 'jldec/pub-src-github',
@@ -33,15 +30,14 @@ test('test get on tree', function(done) {
     username: (process.env.GH || '') } );
 
   source.get(function(err, files) {
-    if (err) return done(err);
-// console.log(files);
-    assert.deepEqual(files, expected);
-    done();
+    // console.log(files);
+    t.deepEqual(files, expected);
+    t.end(err);
   });
 
 });
 
-test('test get on single file', function(done) {
+test('test get on single file', { timeout:5000 }, function(t) {
 
   var source = require('..')(
   { repo: process.env.GH_REPO || 'jldec/pub-src-github',
@@ -50,10 +46,9 @@ test('test get on single file', function(done) {
     username: (process.env.GH || '') } );
 
   source.get(function(err, files) {
-    if (err) return done(err);
     // console.log(files);
-    assert.deepEqual(files, [expected[0]]);
-    done();
+    t.deepEqual(files, [expected[0]]);
+    t.end(err);
   });
 
 });

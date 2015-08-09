@@ -4,9 +4,7 @@
  *
 **/
 
-suite('pub-src-github test-put');
-
-var assert = require('assert')
+var test = require('tape');
 
 var stored   = 'file some -->  ⌘ <---'
 var overwrite = ' - ⌘ - ⌘ - ';
@@ -27,8 +25,7 @@ var expected =
   { path: '/f2/8.txt', text: '' } ];
 
 
-test('test put, validate, and restore', function(done) {
-  this.timeout(5000);
+test('test put, validate, and restore', { timeout:10000 }, function(t) {
 
   var source = require('..')(
   { repo: process.env.GH_REPO || 'jldec/pub-src-github',
@@ -39,17 +36,16 @@ test('test put, validate, and restore', function(done) {
   );
 
   source.put(expected, 'pub-src-github test-put1', function(err) {
-    if (err) return done(err);
+    t.error(err);
     source.get(function(err, files) {
-      if (err) return done(err);
-      assert.deepEqual(files, expected);
+      t.error(err);
+      t.deepEqual(files, expected);
       source.put( [{ path: '/-foo.txt', text: stored}], { commitMsg: 'pub-src-github test-put2' }, function(err) {
-        if (err) return done(err);
+        t.error(err);
         expected[0].text = stored;
         source.get(function(err, files) {
-          if (err) return done(err);
-          assert.deepEqual(files, expected);
-          done();
+          t.deepEqual(files, expected);
+          t.end(err);
         });
       });
     });
