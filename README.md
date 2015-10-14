@@ -1,6 +1,6 @@
 # pub-src-github
 
-Github source for pub-server and pub-generator
+GitHub source for pub-server and pub-generator
 
 * provides `get()` and `put()` for bulk reads and writes
 * works in conjunction with `pub-src-fs/fs-base`
@@ -84,14 +84,3 @@ export GH_REPO={your-repo}
 
 - `tests/test-get` can read this module's github repo, but `tests/test-put` requires an access token to write to the repo
 - in order to run `npm test` yourself, first generate your own personal access token, and run the tests against your fork
-
-
-
-
-
-
-
-
-
-
-
