@@ -4,7 +4,7 @@ GitHub source for pub-server and pub-generator
 
 * provides `get()` and `put()` for bulk reads and writes
 * works in conjunction with `pub-src-fs/fs-base`
-* assumes that all files are utf-8 text
+* assumes that all files with non-binary extensions are utf-8 text
 * globs and descends directories
 
 ## src(options)
@@ -43,9 +43,12 @@ source.get(function(err, files) {
 ### source.depth
 - `depth` limits the depth of directory descent when source.glob includes `**/` (globstar)
 
+### source.writeOnly
+- disables reading with .get()
+
 ### source.get(cb)
 - `get()` fetches all matching files in one async operation
-- the result is an array of file objects each with a `path:` and a `text:` property
+- the result is an array of file objects each with a `path:` and a `text:` property (for non-binary files), or a `buffer:` property (for binary files)
 - the array is sorted alphabetically by path
 - results do not include directories, but do include files in subdirectories
 - if the source is writable, `get()` is atomic with respect to `put()` or other `source.get()` operations
