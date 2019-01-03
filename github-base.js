@@ -13,7 +13,7 @@
 
 var debug = require('debug')('pub:src-github');
 var superagent = require('superagent');
-var Queue = require('queue3');
+var Queue = require('queue4');
 var asyncbuilder = require('asyncbuilder');
 var u = require('pub-util');
 
@@ -67,7 +67,7 @@ module.exports = function ghbase(opts) {
     if (data) { rq.send(data); }
 
     rq.end(function(err, resp) {
-      var err = (resp && resp.error) || err;
+      err = (resp && resp.error) || err;
       debug(method + ' ' + url + ' ' + (err || '') + '(X-RateLimit-Remaining: ' + resp.header['x-ratelimit-remaining'] + ')');
       if (err) return cb(err);
       return cb(null, resp.body);
@@ -88,14 +88,14 @@ module.exports = function ghbase(opts) {
     if (2 === arguments.length) { cb = options; }
     get(self.endpoint + '/contents' + fullpath + self.refparam, function(err, json) {
       if (err) return cb(err);
-      cb(null, new Buffer(json.content, 'base64'));
+      cb(null, Buffer.from(json.content, 'base64'));
     });
   }
 
   function readfileBySha(sha, cb) {
     get(self.endpoint + '/git/blobs/' + sha, function(err, json) {
       if (err) return cb(err);
-      cb(null, new Buffer(json.content, 'base64'));
+      cb(null, Buffer.from(json.content, 'base64'));
     });
   }
 
@@ -143,7 +143,7 @@ module.exports = function ghbase(opts) {
 
               var newref = { sha:postedcommit.sha };
 
-              patch(self.endpoint + '/git/refs/heads/' + self.branch, newref, function(err, patchedref) {
+              patch(self.endpoint + '/git/refs/heads/' + self.branch, newref, function(err) {
                 if(err) return cb(err);
 
                 return cb(null, u.pluck(data, 'path'));
@@ -153,7 +153,7 @@ module.exports = function ghbase(opts) {
         });
       });
 
-    })
+    });
   }
 
   // write an array of files each with path: and (text: or buffer:)

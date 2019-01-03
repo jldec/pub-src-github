@@ -42,4 +42,4 @@ module.exports = function sourceGithub(sourceOpts) {
     });
   }
 
-}
+};

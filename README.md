@@ -1,4 +1,5 @@
 # pub-src-github
+[![Build Status](https://api.travis-ci.org/jldec/pub-src-github.svg?branch=master)](https://travis-ci.org/jldec/pub-src-github)
 
 GitHub source for pub-server and pub-generator
 

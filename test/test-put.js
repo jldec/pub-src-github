@@ -6,9 +6,6 @@
 
 var test = require('tape');
 var fs = require('fs');
-var u = require('pub-util');
-
-var stored   = 'file some -->  ⌘ <---'
 var overwrite = ' - ⌘ - ⌘ - ';
 
 var expected =
@@ -28,17 +25,18 @@ var expected =
   { path: '/2/10.txt/13/level-4/not-ignored.txt', sha: 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391', text: '' },
   { path: '/f1/6.txt', sha: 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391', text: '' },
   { path: '/f1/7.txt', sha: 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391', text: '' },
-  { path: '/f2/8.txt', sha: 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391', text: '' } ]
+  { path: '/f2/8.txt', sha: 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391', text: '' } ];
 
-test('test put, validate, and restore', { timeout:10000 }, function(t) {
+test('test put, validate, and restore', { timeout:60000 }, function(t) {
 
   var source = require('..')(
-  { repo: process.env.GH_REPO || 'jldec/pub-src-github',
-    path: '/test/test-put',
-    glob: '**/*.*',
-    includeBinaries:true,
-    writable: true,
-    username: (process.env.GH || '') }
+    { repo: process.env.GH_REPO || 'jldec/test-repo',
+      branch: process.env.GH_BRANCH || 'test-branch',
+      path: '/test/test-put',
+      glob: '**/*.*',
+      includeBinaries:true,
+      writable: true,
+      username: (process.env.GH || '') }
   );
 
   // TODO: delete the test-put sub tree before running this test
