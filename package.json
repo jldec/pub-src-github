@@ -6,7 +6,7 @@
   "dependencies": {
     "asyncbuilder": "^1.0.3",
     "debug": "^4.1.1",
-    "pub-src-fs": "^1.5.1",
+    "pub-src-fs": "^1.5.2",
     "pub-util": "^3.0.2",
     "queue4": "^1.0.4",
     "superagent": "^4.1.0"
