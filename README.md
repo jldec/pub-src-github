@@ -1,6 +1,5 @@
 # pub-src-github
-[![Azure Build Status](https://dev.azure.com/jldec/pub-src-github/_apis/build/status/jldec.pub-src-github?branchName=master)](https://dev.azure.com/jldec/pub-src-github/_build/latest?definitionId=1&branchName=master)
-[![Build Status](https://api.travis-ci.org/jldec/pub-src-github.svg?branch=master)](https://travis-ci.org/jldec/pub-src-github)
+![CI](https://github.com/jldec/pub-src-github/workflows/CI/badge.svg)
 
 GitHub source for pub-server and pub-generator
 
