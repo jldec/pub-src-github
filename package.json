@@ -1,18 +1,18 @@
 {
   "name": "pub-src-github",
-  "version": "1.3.13",
+  "version": "1.3.14",
   "description": "GitHub source for pub-server and pub-generator",
   "main": "pub-src-github.js",
   "dependencies": {
     "asyncbuilder": "^1.0.9",
-    "debug": "^4.1.1",
-    "pub-src-fs": "^2.1.1",
-    "pub-util": "^3.1.1",
-    "queue4": "^1.0.8",
-    "superagent": "^5.2.2"
+    "debug": "^4.2.0",
+    "pub-src-fs": "^2.1.2",
+    "pub-util": "^3.2.0",
+    "queue4": "^1.0.9",
+    "superagent": "^6.1.0"
   },
   "devDependencies": {
-    "eslint": "^7.5.0",
+    "eslint": "^7.13.0",
     "tape": "^5.0.1"
   },
   "files": [

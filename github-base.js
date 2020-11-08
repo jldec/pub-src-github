@@ -133,7 +133,7 @@ module.exports = function ghbase(opts) {
             if(err) return cb(err);
 
             var newcommit = {
-              message: 'pub-server commit: ' + (options.commitMsg || ''),
+              message: options.commitMsg || 'pub-src-github commit',
               tree: postedtree.sha,
               parents: [headcommit.sha]
             };
