@@ -32,7 +32,7 @@ module.exports = function ghbase(opts) {
 
   self.path     = self.path      || '/';
 
-  self.branch   = self.branch    || process.env.GH_BRANCH || 'master';
+  self.branch   = self.branch    || process.env.GH_BRANCH || 'main';
   self.refparam = '?ref=' + self.branch;
 
   self.username = (self.auth && self.auth.access_token) || process.env.GH || '';

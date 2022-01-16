@@ -1,6 +1,6 @@
 /**
  * test-get
- * copyright 2015-2020, Jürgen Leschner - github.com/jldec - MIT license
+ * Copyright (c) 2015-2022 Jürgen Leschner - github.com/jldec - MIT license
  *
 **/
 
@@ -48,6 +48,7 @@ test('test get on single file', { timeout:30000 }, function(t) {
 
   var source = require('..')(
     { repo: process.env.GH_REPO || 'jldec/test-repo',
+      branch: process.env.GH_BRANCH || 'test-branch',
       path: '/test/tree/-foo.txt',
       glob: '**/*.txt',
       username: (process.env.GH || '') } );

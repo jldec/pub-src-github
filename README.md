@@ -17,7 +17,7 @@ var src = require('pub-src-github');
 // options become properties of source
 var source = src(
 { repo:'jldec/date-plus',
-  branch:'master',
+  branch:'main',
   path:'/',
   glob:'*.md' } );
 
@@ -30,7 +30,7 @@ source.get(function(err, files) {
 
 ### source.repo, .branch
 - `repo` is required
-- `branch` will default to 'master'
+- `branch` will default to 'main' (**breaking change** as of pub-src-github v2.0.0)
 
 ### source.username, .password
 - `username` and `password` may be required to access private repos
