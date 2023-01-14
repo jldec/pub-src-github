@@ -1,6 +1,6 @@
 {
   "name": "pub-src-github",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "GitHub source for pub-server and pub-generator",
   "main": "pub-src-github.js",
   "dependencies": {
@@ -12,7 +12,7 @@
     "superagent": "^8.0.6"
   },
   "devDependencies": {
-    "eslint": "^8.30.0",
+    "eslint": "^8.31.0",
     "tape": "^5.6.1"
   },
   "files": [

@@ -68,8 +68,8 @@ module.exports = function ghbase(opts) {
 
     rq.end(function(err, resp) {
       err = (resp && resp.error) || err;
-      debug(method + ' ' + url + ' ' + (err || '') + '(X-RateLimit-Remaining: ' + resp.header['x-ratelimit-remaining'] + ')');
       if (err) return cb(err);
+      debug(method + ' ' + url + ' (username:' + self.username + ' X-RateLimit-Remaining: ' + resp.header['x-ratelimit-remaining'] + ')');
       return cb(null, resp.body);
     });
   }
